@@ -35,6 +35,22 @@ void loop() {
   pinMode(VOLT_PIN,INPUT);
   pinMode(INA169_OUT,INPUT);
   
+  bool continueSampling = true;
+  long currMillis;
+  long startMillis = millis();
+  
+//  while(continueSampling){
+//    currMillis = millis();
+//    if ((currMillis - startMillis) >= 10){
+//      ina169SumVal += analogRead(INA169_OUT);
+//      voltSumVal += analogRead(VOLT_PIN);
+//      sumCount++;
+//      if (sumCount == NUM_SAMPLES){
+//        continueSampling = false;
+//      }
+//      startMillis = millis();
+//    }
+//  }
   // take a number of analog samples and add them up
   while(sumCount < NUM_SAMPLES){
     ina169SumVal += analogRead(INA169_OUT);
